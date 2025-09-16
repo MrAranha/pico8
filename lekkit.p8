@@ -1,0 +1,65 @@
+pico-8 cartridge // http://www.pico-8.com
+version 43
+__lua__
+x = 60
+y = 60
+timing = 0.5
+char_sprite = 1
+function _draw()
+	cls(0)
+	spr(char_sprite, x, y)
+	if(not btn(0) and not btn(2) and not btn(3) and not btn(1)) then
+		if char_sprite <= 12 and char_sprite >= 10 then
+			char_sprite = 10
+		end
+		if char_sprite >= 4 and char_sprite <= 6 then
+			char_sprite = 4
+		end
+		if char_sprite <= 9 and char_sprite >= 7 then
+			char_sprite = 7
+		end
+		if char_sprite <= 3 and char_sprite >= 1 then
+			char_sprite = 1
+		end
+	end
+	if(btn(0)) then
+		x -= 2
+		if(not btn(3) and not btn(2)) then
+			char_sprite = char_sprite + 0.25
+			if char_sprite > 12 or char_sprite < 10 then
+				char_sprite = 10
+			end
+		end
+	end
+	if(btn(1)) then
+		x += 2
+		if(not btn(3) and not btn(2)) then
+			char_sprite = char_sprite + 0.25
+			if char_sprite < 4 or char_sprite > 6 then
+				char_sprite = 4
+			end
+		end
+	end
+	if(btn(2)) then
+		y -= 2
+		char_sprite = char_sprite + 0.25
+		if char_sprite > 9 or char_sprite < 7 then
+			char_sprite = 7
+		end
+	end
+	if(btn(3)) then
+		y += 2
+		char_sprite = char_sprite + 0.25
+		if char_sprite > 3 or char_sprite < 1 then
+			char_sprite = 1
+		end
+	end
+end
+__gfx__
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000070000700700007007000070007707000077070000770700070000700700007007000070007707000077070000770700070000700000000000000000
+00700700077777700777777007777770077777700777777007777770077777700777777007777770077777700777777007777770077777700000000000000000
+00077000077777700777777007777770077777700777777007777770077777700777777007777770077777700777777007777770077777700000000000000000
+00077000070770700707707007077070077770700777707007777070077777700777777007777770070777700707777007077770070770700000000000000000
+00700700007777000077770000777700007777000077770000777700007777000077770000777700007777000077770000777700007777000000000000000000
+00000000007007000070000000000700007007000000070000700000007007000070000000000700007007000070000000000700007007000000000000000000
