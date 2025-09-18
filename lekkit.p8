@@ -19,8 +19,9 @@ function _init()
 end
 
 
-	body_bobbing = 7
-	trident_bobbing = 4 
+body_bobbing = 7
+trident_bobbing = 4 
+
 function _enemy()
 
 	y_enemy = 80
